@@ -1,27 +1,64 @@
+@font-face {
+  font-family: Satisfy;
+  src: url(../../assets/fonts/Satisfy-Regular.ttf);
+}
+
+@font-face {
+  font-family: Kalam;
+  src: url(../../assets/fonts/Kalam-Regular.ttf);
+}
+
+@font-face {
+  font-family: Kalam-bold;
+  src: url(../../assets/fonts/Kalam-Bold.ttf);
+}
+
 #container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-col {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 100%;
+  background-color: #2d2a2a42;
+  border: solid 1px black;
+  margin: 5px;
+  padding: 0;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-button > p {
+  width: 100%;
+  text-align: left;
+  padding: 5px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+ion-content.background {
+  --background: url(../../assets/images/background.png) 0 0/100% 100% no-repeat;
+}
 
-  color: #8c8c8c;
+ion-img.icone {
 
+}
+
+ion-button {
   margin: 0;
+  color: white;
 }
 
-#container a {
-  text-decoration: none;
+
+.title {
+  text-align: center;
+  color: white;
+  font-family: Satisfy;
+  //font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.description {
+  font-family: Kalam-bold;
+}
+
+.contact {
+  font-family: Kalam;
 }

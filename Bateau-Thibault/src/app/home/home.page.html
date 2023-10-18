@@ -1,20 +1,54 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content class="background" [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="title">
+      <ion-text ><h1>Le Bateau de Thibault</h1></ion-text>
+    </ion-row>
+    <ion-row class="description">
+      <ion-text>Vente en direct de notre bateau <br/> Produit selon la saison, Livraisons sur Paris <br/></ion-text>
+    </ion-row>
+    <ion-row class="contact">
+      <ion-text>01.01.01.01.01 <br/> lebateaudethibault@gmail.com <br/> www.facebook.com/lebateaudethibault <br/></ion-text>
+    </ion-row>
+    <ion-row>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button fill="clear" expand="full">
+              <ion-img class="icone" src="../../assets/images/poisson.png"></ion-img>
+              <p>Produit et Promotions</p>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button fill="clear" expand="full">
+              <ion-img class="icone" src="../../assets/images/ancre.png"></ion-img>
+              <p>Bateaux</p>
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button fill="clear" expand="full">
+              <ion-img class="icone" src="../../assets/images/restaurant.png"></ion-img>
+              <p>Restaurants</p>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button fill="clear" expand="full">
+              <ion-img class="icone" src="../../assets/images/recette.png"></ion-img>
+              <p>Recettes</p>
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button fill="clear" expand="full">
+              <ion-img class="icone" src="../../assets/images/tourteau.png"></ion-img>
+              <p>Contact</p>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-row>
+  </ion-grid>
+  
 </ion-content>
