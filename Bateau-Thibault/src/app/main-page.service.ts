@@ -13,23 +13,28 @@ export class MainPageService {
       buttonArray : [
         {
           name: 'Produit et Promotions',
-          image : '../../assets/images/poisson.png'
+          image : '../../assets/images/poisson.png',
+          page: ''
         },
         {
           name: 'Bateaux',
-          image : '../../assets/images/ancre.png'
+          image : '../../assets/images/ancre.png',
+          page: ''
         },
         {
           name: 'Restaurants',
-          image : '../../assets/images/restaurant.png'
+          image : '../../assets/images/restaurant.png',
+          page: ''
         },
         {
           name: 'Recettes',
-          image : '../../assets/images/recette.png'
+          image : '../../assets/images/recette.png',
+          page: ''
         },
         {
           name: 'Contact',
-          image : '../../assets/images/tourteau.png'
+          image : '../../assets/images/tourteau.png',
+          page: '/contact'
         }
       ]
     }
