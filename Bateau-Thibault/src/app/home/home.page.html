@@ -1,54 +1,46 @@
 <ion-content class="background" [fullscreen]="true">
-  <ion-grid>
-    <ion-row class="title">
+
+    <div class="title">
       <ion-text ><h1>Le Bateau de Thibault</h1></ion-text>
-    </ion-row>
-    <ion-row class="description">
-      <ion-text>Vente en direct de notre bateau <br/> Produit selon la saison, Livraisons sur Paris <br/></ion-text>
-    </ion-row>
-    <ion-row class="contact">
-      <ion-text>01.01.01.01.01 <br/> lebateaudethibault@gmail.com <br/> www.facebook.com/lebateaudethibault <br/></ion-text>
-    </ion-row>
-    <ion-row>
+    </div>
+    <div class="subtitle">
+      <div class="description">
+        <ion-text>Vente en direct de notre bateau <br/> Produit selon la saison, Livraisons sur Paris</ion-text>
+      </div>
+      <div class="contact">
+        <ion-text>
+          <p>
+            <a href="tel:+33663999978">06.63.99.99.78 </a><br/> 
+            <a href="mailto:lebateaudethibault@gmail.com">lebateaudethibault@gmail.com</a><br/> 
+            <a href="https://www.facebook.com/lebateaudethibault">www.facebook.com/lebateaudethibault</a> <br/>
+          </p>
+        </ion-text>
+      </div>
+    </div>
+    <div class="buttons">
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button fill="clear" expand="full">
-              <ion-img class="icone" src="../../assets/images/poisson.png"></ion-img>
-              <p>Produit et Promotions</p>
-            </ion-button>
+            <app-menu-button [menuButton]='ProduitetPromotions'></app-menu-button>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-button fill="clear" expand="full">
-              <ion-img class="icone" src="../../assets/images/ancre.png"></ion-img>
-              <p>Bateaux</p>
-            </ion-button>
+            <app-menu-button [menuButton]='Bateaux'></app-menu-button>
           </ion-col>
           <ion-col>
-            <ion-button fill="clear" expand="full">
-              <ion-img class="icone" src="../../assets/images/restaurant.png"></ion-img>
-              <p>Restaurants</p>
-            </ion-button>
+            <app-menu-button [menuButton]='Restaurant'></app-menu-button>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-button fill="clear" expand="full">
-              <ion-img class="icone" src="../../assets/images/recette.png"></ion-img>
-              <p>Recettes</p>
-            </ion-button>
+            <app-menu-button [menuButton]='Recettes'></app-menu-button>
           </ion-col>
           <ion-col>
-            <ion-button fill="clear" expand="full">
-              <ion-img class="icone" src="../../assets/images/tourteau.png"></ion-img>
-              <p>Contact</p>
-            </ion-button>
+            <app-menu-button [menuButton]='Contact'></app-menu-button>
           </ion-col>
         </ion-row>
       </ion-grid>
-    </ion-row>
-  </ion-grid>
+    </div>
   
 </ion-content>

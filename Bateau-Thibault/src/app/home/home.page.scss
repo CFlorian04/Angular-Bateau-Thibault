@@ -1,20 +1,10 @@
-@font-face {
-  font-family: Satisfy;
-  src: url(../../assets/fonts/Satisfy-Regular.ttf);
-}
-
-@font-face {
-  font-family: Kalam;
-  src: url(../../assets/fonts/Kalam-Regular.ttf);
-}
-
-@font-face {
-  font-family: Kalam-bold;
-  src: url(../../assets/fonts/Kalam-Bold.ttf);
-}
-
 #container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-grid {
   justify-content: center;
   align-items: center;
 }
@@ -23,42 +13,53 @@ ion-col {
   text-align: center;
   width: 100%;
   background-color: #2d2a2a42;
-  border: solid 1px black;
+  border: solid 1px grey;
   margin: 5px;
   padding: 0;
 }
 
-ion-button > p {
-  width: 100%;
-  text-align: left;
-  padding: 5px;
+ion-col:hover {
+  background-color: #2d2a2a65;
 }
 
 ion-content.background {
   --background: url(../../assets/images/background.png) 0 0/100% 100% no-repeat;
 }
 
-ion-img.icone {
-
-}
-
-ion-button {
-  margin: 0;
-  color: white;
-}
-
-
 .title {
   text-align: center;
+  align-items: center;
+  justify-content: center;
   color: white;
   font-family: Satisfy;
-  //font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  height: 25vh;
+}
+
+.subtitle {
+  height: 25vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  height: 45vh;
+  align-items: center;
+  justify-content: center;
 }
 
 .description {
   font-family: Kalam-bold;
+  text-align: center;
+  line-height: 1;
 }
 
 .contact {
+  text-align: center;
   font-family: Kalam;
+  line-height: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

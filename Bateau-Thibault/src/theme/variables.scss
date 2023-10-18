@@ -1,6 +1,22 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+@font-face {
+  font-family: Satisfy;
+  src: url(../../assets/fonts/Satisfy-Regular.ttf);
+}
+
+@font-face {
+  font-family: Kalam;
+  src: url(../../assets/fonts/Kalam-Regular.ttf);
+}
+
+@font-face {
+  font-family: Kalam-bold;
+  src: url(../../assets/fonts/Kalam-Bold.ttf);
+}
+
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
@@ -241,4 +257,8 @@ html {
    * https://ionicframework.com/docs/layout/dynamic-font-scaling
    */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
+}
+
+ion-button {
+  text-transform: none;
 }
