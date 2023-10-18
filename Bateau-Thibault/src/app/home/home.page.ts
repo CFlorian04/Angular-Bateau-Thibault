@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MainPageModel } from 'src/models/MainPage';
 import { CustomButton } from 'src/models/customButton';
+import { MainPageService } from '../main-page.service';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +10,21 @@ import { CustomButton } from 'src/models/customButton';
 })
 export class HomePage {
 
-  ProduitetPromotions: CustomButton = new CustomButton("Produit et Promotions", "../../assets/images/poisson.png");
-  Bateaux: CustomButton = new CustomButton("Bateaux", "../../assets/images/ancre.png");
-  Restaurant: CustomButton = new CustomButton("Restaurant", "../../assets/images/restaurant.png");
-  Recettes: CustomButton = new CustomButton("Recettes", "../../assets/images/recette.png");
-  Contact: CustomButton = new CustomButton("Contact", "../../assets/images/tourteau.png");
 
-  constructor() {}
+  MainPage! : MainPageModel;
+
+  isEven! : boolean;
+  
+
+  constructor(private mainPageS :MainPageService) {
+  }
+
+  ngOnInit() {
+    this.MainPage = this.mainPageS.getMainPage()
+    
+    this.isEven = this.MainPage.buttonArray.length%2 == 0
+    
+  }
+
 
 }
