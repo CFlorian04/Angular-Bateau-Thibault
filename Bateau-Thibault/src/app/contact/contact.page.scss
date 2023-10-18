@@ -4,3 +4,7 @@ p{
     height: 100%;
     margin: 0;
 }
+
+ion-content.background {
+    --background: url(../../assets/images/background.png) 0 0/100% 100% no-repeat;
+  }
