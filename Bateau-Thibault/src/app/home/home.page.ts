@@ -20,7 +20,7 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.MainPage = this.mainPageS.getMainPage()
+    this.MainPage = this.mainPageS.getMainPage(0)
     
     this.isEven = this.MainPage.buttonArray.length%2 == 0
     
