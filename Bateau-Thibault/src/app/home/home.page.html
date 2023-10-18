@@ -1,11 +1,13 @@
 <ion-content class="background" [fullscreen]="true">
 
     <div class="title">
-      <ion-text ><h1>Le Bateau de Thibault</h1></ion-text>
+      <!-- <ion-text ><h1>Le Bateau de Thibault</h1></ion-text> -->
+      <ion-text ><h1>{{ MainPage.titre }}</h1></ion-text>
     </div>
     <div class="subtitle">
       <div class="description">
-        <ion-text>Vente en direct de notre bateau <br/> Produit selon la saison, Livraisons sur Paris</ion-text>
+        <!-- <ion-text>Vente en direct de notre bateau <br/> Produit selon la saison, Livraisons sur Paris</ion-text> -->
+        <ion-text>{{ MainPage.description }}</ion-text>
       </div>
       <div class="contact">
         <ion-text>
@@ -18,8 +20,53 @@
       </div>
     </div>
     <div class="buttons">
-      <ion-grid>
-        <ion-row>
+      <ion-grid *ngFor="let button of MainPage.buttonArray; index as i">
+        <div *ngIf="(this.isEven && i%2 == 0) || (!this.isEven && (i%2 != 0 || i ==0)); then even"></div>
+          <ng-template #even>
+            <div *ngIf="(!this.isEven && i==0); then first else other"></div>
+              <ng-template #first>
+                <ion-row>
+                  <ion-col>
+                    <app-menu-button [menuButton]='button'></app-menu-button>
+                  </ion-col>
+                </ion-row>
+              </ng-template>
+              <ng-template #other>
+                <ion-row>
+                  <ion-col>
+                    <app-menu-button [menuButton]='button'></app-menu-button>
+                  </ion-col>
+                  <ion-col>
+                    <app-menu-button [menuButton]='MainPage.buttonArray[i+1]'></app-menu-button>
+                  </ion-col>
+                </ion-row>
+              </ng-template>
+          </ng-template>
+          <!-- <ng-template #odd>
+            <ion-row>
+            <ion-col>
+              {{ i }}
+              <app-menu-button [menuButton]='button'></app-menu-button>
+            </ion-col>
+            <ion-col>
+              {{ i }}
+              <app-menu-button [menuButton]='MainPage.buttonArray[i+1]'></app-menu-button>
+            </ion-col>
+          </ion-row>
+          </ng-template> -->
+
+
+        <!-- <ion-row *ngIf="(this.isEven && i != 0)||(!this.isEven && i != 0)">
+          <ion-col>
+            {{ i }}
+            <app-menu-button [menuButton]='button'></app-menu-button>
+          </ion-col>
+          <ion-col>
+            {{ i }}
+            <app-menu-button [menuButton]='button'></app-menu-button>
+          </ion-col>
+        </ion-row> -->
+        <!-- <ion-row>
           <ion-col>
             <app-menu-button [menuButton]='ProduitetPromotions'></app-menu-button>
           </ion-col>
@@ -39,7 +86,7 @@
           <ion-col>
             <app-menu-button [menuButton]='Contact' [routerLink]="'/contact'"></app-menu-button>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
       </ion-grid>
     </div>
   
