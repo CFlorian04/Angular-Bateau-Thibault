@@ -21,19 +21,27 @@ export class HomePage {
 
   ngOnInit() {
     this.setMainPage(Pages.Accueil)
-    
+    console.log(this.mainPageS);
   }
 
   setMainPage(index :number) {
-    this.MainPage = this.mainPageS.getMainPage(index)
+    if(Object.values(Pages).includes(index)) {
+      this.MainPage = this.mainPageS.getMainPage(index)
 
-    console.log(this.MainPage);
-    console.log(index);
-    this.isEven = this.MainPage.buttonArray.length%2 == 0
+      console.log(this.MainPage);
+      console.log(index);
+      this.isEven = this.MainPage.buttonArray.length%2 == 0
+    }
+    else
+    console.log('index is not defined');
   }
 
   isMenuPage(index :number) {
     return (index == 0 || index == 2 || index == 3 || index == 4)
+  }
+
+  isContactOrMenu(index :number) {
+    return (index >= 0 && index <= 4)
   }
 
 

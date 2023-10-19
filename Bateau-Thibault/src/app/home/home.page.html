@@ -14,11 +14,19 @@
           <ion-text>{{ MainPage.description }}</ion-text>
         </div>
       </ng-template>
-      <app-contact></app-contact>
-      <div *ngIf="!isMenuPage(this.MainPage.index); then showDownDesc"></div>
+      <div *ngIf="isContactOrMenu(this.MainPage.index); then showContact  else genericDesc"></div>
+      <ng-template #showContact>
+        <app-contact></app-contact>
+      </ng-template>
       <ng-template #showDownDesc>
-        <div class="description">
+        <div class="contact">
           <ion-text>{{ MainPage.description }}</ion-text>
+        </div>
+      </ng-template>
+      <div *ngIf="!isMenuPage(this.MainPage.index); then showDownDesc"></div>
+      <ng-template #genericDesc>
+        <div style="padding : 5px" class="contact">
+          <ion-text> XXX YYY ZZZ</ion-text>
         </div>
       </ng-template>
     </div>
