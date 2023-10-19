@@ -33,8 +33,8 @@ export class HomePage {
     if(Object.values(Pages).includes(index)) {
       this.MainPage = this.mainPageS.getMainPage(index)
 
-      console.log(this.MainPage);
-      console.log(index);
+      //console.log(this.MainPage);
+      //console.log(index);
       this.isEven = this.MainPage.buttonArray.length%2 == 0
     }
     else
@@ -64,7 +64,7 @@ export class HomePage {
           //const swipe = direction[0] < 0 ? 'next' : 'previous';
           // Do whatever you want with swipe
 
-          console.log(direction[0] < 0 ? 'next' : 'previous');
+          //console.log(direction[0] < 0 ? 'next' : 'previous');
 
           this.setMainPage(this.MainPage.index/10 >= 0 ? Math.trunc(this.MainPage.index/10) : 0)
 

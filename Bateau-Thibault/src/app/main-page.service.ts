@@ -110,12 +110,12 @@ export class MainPageService {
         {
           index: 1,
           name: 'Contact',
-          image : '../../assets/images/tourteau.png'
+          image : '../../assets/images/ancre.png'
         },
         {
           index: 1,
           name: 'Contact',
-          image : '../../assets/images/tourteau.png'
+          image : '../../assets/images/ancre.png'
         }
       ]
     },

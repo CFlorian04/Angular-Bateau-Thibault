@@ -1,8 +1,10 @@
-<ion-content class="background" [fullscreen]="true" >
+<ion-content class="background" [fullscreen]="true">
 
   <div (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
     <div class="title">
-      <ion-text ><h1>{{ MainPage.titre }}</h1></ion-text>
+      <ion-text>
+        <h1>{{ MainPage.titre }}</h1>
+      </ion-text>
     </div>
     <div *ngIf="!isMenuPage(this.MainPage.index); then istrue"></div>
     <ng-template #istrue>
@@ -34,29 +36,32 @@
     <div *ngIf="isMenuPage(this.MainPage.index); then showbuttons"></div>
     <ng-template #showbuttons>
       <div class="buttons">
-          <ion-grid *ngFor="let button of MainPage.buttonArray; index as i">
-            <div *ngIf="(this.isEven && i%2 == 0) || (!this.isEven && (i%2 != 0 || i ==0)); then even"></div>
-              <ng-template #even>
-                <div *ngIf="(!this.isEven && i==0); then first else other"></div>
-                  <ng-template #first>
-                    <ion-row>
-                      <ion-col>
-                        <app-menu-button [menuButton]='button' (setMainPage)='this.setMainPage(button.index)'></app-menu-button>
-                      </ion-col>
-                    </ion-row>
-                  </ng-template>
-                  <ng-template #other>
-                    <ion-row>
-                      <ion-col>
-                        <app-menu-button [menuButton]='button' (setMainPage)='this.setMainPage(button.index)'></app-menu-button>
-                      </ion-col>
-                      <ion-col>
-                        <app-menu-button [menuButton]='MainPage.buttonArray[i+1]' (setMainPage)='this.setMainPage(MainPage.buttonArray[i+1].index)'></app-menu-button>
-                      </ion-col>
-                    </ion-row>
-                  </ng-template>
-              </ng-template>
-          </ion-grid>
+        <ion-grid *ngFor="let button of MainPage.buttonArray; index as i">
+          <div *ngIf="(this.isEven && i%2 == 0) || (!this.isEven && (i%2 != 0 || i ==0)); then even"></div>
+          <ng-template #even>
+            <div *ngIf="(!this.isEven && i==0); then first else other"></div>
+            <ng-template #first>
+              <ion-row>
+                <ion-col>
+                  <app-menu-button [menuButton]='button'
+                    (setMainPage)='this.setMainPage(button.index)'></app-menu-button>
+                </ion-col>
+              </ion-row>
+            </ng-template>
+            <ng-template #other>
+              <ion-row>
+                <ion-col>
+                  <app-menu-button [menuButton]='button'
+                    (setMainPage)='this.setMainPage(button.index)'></app-menu-button>
+                </ion-col>
+                <ion-col>
+                  <app-menu-button [menuButton]='MainPage.buttonArray[i+1]'
+                    (setMainPage)='this.setMainPage(MainPage.buttonArray[i+1].index)'></app-menu-button>
+                </ion-col>
+              </ion-row>
+            </ng-template>
+          </ng-template>
+        </ion-grid>
       </div>
     </ng-template>
   </div>
