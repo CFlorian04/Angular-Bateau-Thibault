@@ -32,13 +32,10 @@ export class HomePage {
   setMainPage(index :number) {
     if(Object.values(Pages).includes(index)) {
       this.MainPage = this.mainPageS.getMainPage(index)
-
-      //console.log(this.MainPage);
-      //console.log(index);
       this.isEven = this.MainPage.buttonArray.length%2 == 0
     }
     else
-    console.log('index is not defined');
+      console.log('index is not defined');
   }
 
   isMenuPage(index :number) {
@@ -47,6 +44,10 @@ export class HomePage {
 
   isContactOrMenu(index :number) {
     return (index >= 0 && index <= 4)
+  }
+
+  isStaticPage(index :number) {
+    return !(index == 5 || (index >= 50 && index < 60));
   }
 
   swipe(e: TouchEvent, when: string): void {
@@ -61,13 +62,8 @@ export class HomePage {
       const duration = time - this.swipeTime;
   
       if (duration < 1000 && direction[0] > 30 && Math.abs(direction[0]) > Math.abs(direction[1] * 3)) { 
-          //const swipe = direction[0] < 0 ? 'next' : 'previous';
-          // Do whatever you want with swipe
-
-          //console.log(direction[0] < 0 ? 'next' : 'previous');
-
-          this.setMainPage(this.MainPage.index/10 >= 0 ? Math.trunc(this.MainPage.index/10) : 0)
-
+        console.log("set new page from " + this.MainPage.index + " to " + (this.MainPage.index/10 >= 0 ? Math.trunc(this.MainPage.index/10) : 0));
+        this.setMainPage(this.MainPage.index/10 >= 0 ? Math.trunc(this.MainPage.index/10) : 0);
       }
     }
   }

@@ -24,8 +24,12 @@ export enum Pages {
   NoixDeSaintJacques = 41,
   BarRoti = 42,
   TourteauLinguine = 43,
-  RecetteXYZ = 44
+  RecetteXYZ = 44,
 
+  ListePoissons = 50,
+  ListeCoquillages = 51,
+  ListeCrustacés = 52,
+  ListePromotions = 53,
 };
 
 @Injectable({
@@ -191,6 +195,33 @@ export class MainPageService {
           name: 'Recette',
           image : '../../assets/images/poulpe.png'
         }
+      ]
+    },
+    {
+      index: 5,
+      titre: 'Choisissez vos produits',
+      description: '',
+      buttonArray : [
+        {
+          index: 50,
+          name: 'Poissons',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 51,
+          name: 'Coquillages',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 52,
+          name: 'Crustacés',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 53,
+          name: 'Promotions',
+          image : '../../assets/images/poulpe.png'
+        },
       ]
     },
     {
@@ -360,7 +391,115 @@ export class MainPageService {
           image : '../../assets/images/poulpe.png'
         }
       ]
-    }
+    },
+    {
+      index: 50,
+      titre: 'Choisissez vos produits',
+      description: '',
+      buttonArray : [
+        {
+          index: 7,
+          name: 'Filet Bar de ligne',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 10,
+          name: 'Bar de ligne portion',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 10,
+          name: 'Aile de raie',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 12,
+          name: 'Lieu jaune de ligne',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 19,
+          name: 'Filet Julienne',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 30,
+          name: 'Bar de ligne',
+          image : '../../assets/images/poulpe.png'
+        },
+      ]
+    },
+    {
+      index: 51,
+      titre: 'Choisissez vos produits',
+      description: '',
+      buttonArray : [
+        {
+          index: 7,
+          name: 'Moules de pêche',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 8,
+          name: 'Bouquets cuits',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 9.5,
+          name: 'Huîtres N°2 St Vaast',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 12,
+          name: 'Huîtres N°2 OR St Vaast',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 19,
+          name: 'Huîtres N°2 St Vaast',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 24,
+          name: 'Huîtres N°2 OR St Vaast',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 38,
+          name: 'Huîtres N°2 St Vaast',
+          image : '../../assets/images/poulpe.png'
+        },
+        {
+          index: 48,
+          name: 'Huîtres N°2 OR St Vaast',
+          image : '../../assets/images/poulpe.png'
+        },
+      ]
+    },
+    {
+      index: 52,
+      titre: 'Choisissez vos produits',
+      description: '',
+      buttonArray : [
+        {
+          index: 7,
+          name: 'Araignées',
+          image : '../../assets/images/poulpe.png'
+        },
+      ]
+    },
+    {
+      index: 53,
+      titre: 'Choisissez vos produits',
+      description: '',
+      buttonArray : [
+        {
+          index: 7,
+          name: 'Moules de pêche',
+          image : '../../assets/images/poulpe.png'
+        },
+      ]
+    },
   ];
 
   constructor() { }

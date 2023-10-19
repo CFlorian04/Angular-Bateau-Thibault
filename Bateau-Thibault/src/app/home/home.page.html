@@ -1,67 +1,105 @@
 <ion-content class="background" [fullscreen]="true">
-
   <div (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
-    <div class="title">
-      <ion-text>
-        <h1>{{ MainPage.titre }}</h1>
-      </ion-text>
-    </div>
-    <div *ngIf="!isMenuPage(this.MainPage.index); then istrue"></div>
-    <ng-template #istrue>
-      <ion-img class="image" src='{{ MainPage.buttonArray[0].image }}'></ion-img>
+    <div *ngIf="isStaticPage(this.MainPage.index); then isStatic else isNotStatic"></div>
+    <ng-template #isStatic>
+      <div class="title">
+        <ion-text style="color:white">
+          <h1>{{ MainPage.titre }}</h1>
+        </ion-text>
+      </div>
+      <div *ngIf="!isMenuPage(this.MainPage.index); then istrue"></div>
+      <ng-template #istrue>
+        <ion-img class="image" src='{{ MainPage.buttonArray[0].image }}'></ion-img>
+      </ng-template>
+      <div class="subtitle">
+        <div *ngIf="isMenuPage(this.MainPage.index); then showUpDesc"></div>
+        <ng-template #showUpDesc>
+          <div class="description">
+            <ion-text style="color:black">{{ MainPage.description }}</ion-text>
+          </div>
+        </ng-template>
+        <div *ngIf="isContactOrMenu(this.MainPage.index); then showContact  else genericDesc"></div>
+        <ng-template #showContact>
+          <app-contact></app-contact>
+        </ng-template>
+        <ng-template #showDownDesc>
+          <div class="contact">
+            <ion-text style="color:black">{{ MainPage.description }}</ion-text>
+          </div>
+        </ng-template>
+        <div *ngIf="!isMenuPage(this.MainPage.index); then showDownDesc"></div>
+        <ng-template #genericDesc>
+          <div style="padding : 5px" class="contact">
+            <ion-text style="color:black"> XXX YYY ZZZ</ion-text>
+          </div>
+        </ng-template>
+      </div>
+      <div *ngIf="isMenuPage(this.MainPage.index); then showbuttons"></div>
+      <ng-template #showbuttons>
+        <div class="buttons">
+          <ion-grid *ngFor="let button of MainPage.buttonArray; index as i">
+            <div *ngIf="(this.isEven && i%2 == 0) || (!this.isEven && (i%2 != 0 || i ==0)); then even"></div>
+            <ng-template #even>
+              <div *ngIf="(!this.isEven && i==0); then first else other"></div>
+              <ng-template #first>
+                <ion-row>
+                  <ion-col>
+                    <app-menu-button [menuButton]='button'
+                      (setMainPage)='this.setMainPage(button.index)'></app-menu-button>
+                  </ion-col>
+                </ion-row>
+              </ng-template>
+              <ng-template #other>
+                <ion-row>
+                  <ion-col>
+                    <app-menu-button [menuButton]='button'
+                      (setMainPage)='this.setMainPage(button.index)'></app-menu-button>
+                  </ion-col>
+                  <ion-col>
+                    <app-menu-button [menuButton]='MainPage.buttonArray[i+1]'
+                      (setMainPage)='this.setMainPage(MainPage.buttonArray[i+1].index)'></app-menu-button>
+                  </ion-col>
+                </ion-row>
+              </ng-template>
+            </ng-template>
+          </ion-grid>
+        </div>
+      </ng-template>
     </ng-template>
-    <div class="subtitle">
-      <div *ngIf="isMenuPage(this.MainPage.index); then showUpDesc"></div>
-      <ng-template #showUpDesc>
-        <div class="description">
-          <ion-text>{{ MainPage.description }}</ion-text>
-        </div>
-      </ng-template>
-      <div *ngIf="isContactOrMenu(this.MainPage.index); then showContact  else genericDesc"></div>
-      <ng-template #showContact>
-        <app-contact></app-contact>
-      </ng-template>
-      <ng-template #showDownDesc>
-        <div class="contact">
-          <ion-text>{{ MainPage.description }}</ion-text>
-        </div>
-      </ng-template>
-      <div *ngIf="!isMenuPage(this.MainPage.index); then showDownDesc"></div>
-      <ng-template #genericDesc>
-        <div style="padding : 5px" class="contact">
-          <ion-text> XXX YYY ZZZ</ion-text>
-        </div>
-      </ng-template>
-    </div>
-    <div *ngIf="isMenuPage(this.MainPage.index); then showbuttons"></div>
-    <ng-template #showbuttons>
-      <div class="buttons">
-        <ion-grid *ngFor="let button of MainPage.buttonArray; index as i">
-          <div *ngIf="(this.isEven && i%2 == 0) || (!this.isEven && (i%2 != 0 || i ==0)); then even"></div>
-          <ng-template #even>
-            <div *ngIf="(!this.isEven && i==0); then first else other"></div>
-            <ng-template #first>
-              <ion-row>
-                <ion-col>
-                  <app-menu-button [menuButton]='button'
-                    (setMainPage)='this.setMainPage(button.index)'></app-menu-button>
-                </ion-col>
-              </ion-row>
-            </ng-template>
-            <ng-template #other>
-              <ion-row>
-                <ion-col>
-                  <app-menu-button [menuButton]='button'
-                    (setMainPage)='this.setMainPage(button.index)'></app-menu-button>
-                </ion-col>
-                <ion-col>
-                  <app-menu-button [menuButton]='MainPage.buttonArray[i+1]'
-                    (setMainPage)='this.setMainPage(MainPage.buttonArray[i+1].index)'></app-menu-button>
-                </ion-col>
-              </ion-row>
-            </ng-template>
-          </ng-template>
-        </ion-grid>
+    <ng-template #isNotStatic>
+      <app-toolbar></app-toolbar>
+      <div class="title">
+        <ion-text style="color:white">
+          <h1>{{ MainPage.titre }}</h1>
+        </ion-text>
+        <div *ngIf="this.MainPage.index == 5; then menu else subMenu"></div>
+        <ng-template #menu>        
+          <ion-grid *ngFor="let button of MainPage.buttonArray; index as i">
+            <ion-row>
+              <ion-col>
+                <app-menu-button [menuButton]='button'
+                  (setMainPage)='this.setMainPage(button.index)'>
+                </app-menu-button>
+              </ion-col>
+            </ion-row>  
+          </ion-grid>
+        </ng-template>
+        <ng-template #subMenu>
+          <ion-grid *ngFor="let button of MainPage.buttonArray; index as i">
+            <ion-row>
+              <ion-col class="listButton">
+                <ion-button fill="clear" expand="full">
+                  <div *ngIf="button.image; then showImage"></div>
+                    <ng-template #showImage>
+                      <ion-img  class="icone" src='{{ button.image }}'></ion-img>
+                    </ng-template>
+                    <p style="width: 100%; text-align: left;">{{ button.name }}</p>
+                    <p style="text-align: right;">{{ button.index }} €</p>
+                </ion-button>  
+              </ion-col>
+            </ion-row>  
+          </ion-grid>        
+        </ng-template>
       </div>
     </ng-template>
   </div>
