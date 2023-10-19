@@ -1,5 +1,8 @@
-<ion-button fill="clear" expand="full">
-  <ion-img class="icone" src='{{ menuButton.image }}'></ion-img>
+<ion-button fill="clear" expand="full" (click) ="setFunction()">
+  <div *ngIf="menuButton.image; then showImage"></div>
+  <ng-template #showImage>
+    <ion-img  class="icone" src='{{ menuButton.image }}'></ion-img>
+  </ng-template>
   <p>{{ menuButton.name }}</p>
 </ion-button>
 
