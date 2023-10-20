@@ -27,16 +27,17 @@ export class ShopComponent  implements OnInit {
         }
         else if (j == this.realPanierList.length)
         {
-          this.realPanierList.push({
-            name: element.name, 
+          this.realPanierList.push({ name: element.name, 
             num: 1,
             price: element.index,
-            image: element.image
-          });
-          console.log('add element');
+            image: element.image});
+          //this.realPanierList = [...this.realPanierList];
+          console.log("add element");
         }
       }
     }
+    console.log(this.realPanierList);
+    console.log(this.panierList);
   }
 
 }
