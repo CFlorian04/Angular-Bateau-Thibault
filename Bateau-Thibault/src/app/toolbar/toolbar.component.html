@@ -1,6 +1,6 @@
 <ion-toolbar class="main-toolbar">
   <ion-buttons slot="start">
-      <ion-button [routerLink]="'/home'">
+      <ion-button (click)="returnFunc.emit('')">
         <ion-img src="../../assets/images/homeLogo.png"></ion-img>
       </ion-button>
   </ion-buttons>
@@ -13,7 +13,7 @@
   </ion-title>
 
   <ion-buttons slot="end">
-      <ion-button>
+      <ion-button (click)="shopFunc.emit('')">
         <ion-img src="../../assets/images/cartLogo.png"></ion-img>
       </ion-button>
   </ion-buttons>

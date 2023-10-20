@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { MainPageModel } from 'src/models/MainPage';
-import { MainPageService } from '../main-page.service';
-import { Pages } from '../main-page.service';
-import { Gesture } from '@ionic/angular';
+import { MainPageService, Pages } from '../main-page.service';
+import { CustomButton } from 'src/models/customButton';
 
 
 
@@ -29,6 +28,10 @@ export class HomePage {
     this.setMainPage(Pages.Accueil)
   }
 
+  getPanier() {
+    return MainPageService.panierList;
+  }
+
   setMainPage(index :number) {
     if(Object.values(Pages).includes(index)) {
       this.MainPage = this.mainPageS.getMainPage(index)
@@ -48,6 +51,11 @@ export class HomePage {
 
   isStaticPage(index :number) {
     return !(index == 5 || (index >= 50 && index < 60));
+  }
+
+  addItem(item : CustomButton) {
+    MainPageService.panierList.push(item);
+    console.log('add item ' + item);
   }
 
   swipe(e: TouchEvent, when: string): void {

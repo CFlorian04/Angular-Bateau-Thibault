@@ -67,9 +67,9 @@
       </ng-template>
     </ng-template>
     <ng-template #isNotStatic>
-      <app-toolbar></app-toolbar>
+      <app-toolbar (returnFunc)='this.setMainPage(5)' (shopFunc)='this.setMainPage(54)'></app-toolbar>
       <div class="title">
-        <ion-text style="color:white">
+        <ion-text style="color:black">
           <h1>{{ MainPage.titre }}</h1>
         </ion-text>
         <div *ngIf="this.MainPage.index == 5; then menu else subMenu"></div>
@@ -85,20 +85,26 @@
           </ion-grid>
         </ng-template>
         <ng-template #subMenu>
-          <ion-grid *ngFor="let button of MainPage.buttonArray; index as i">
-            <ion-row>
-              <ion-col class="listButton">
-                <ion-button fill="clear" expand="full">
-                  <div *ngIf="button.image; then showImage"></div>
-                    <ng-template #showImage>
-                      <ion-img  class="icone" src='{{ button.image }}'></ion-img>
-                    </ng-template>
-                    <p style="width: 100%; text-align: left;">{{ button.name }}</p>
-                    <p style="text-align: right;">{{ button.index }} €</p>
-                </ion-button>  
-              </ion-col>
-            </ion-row>  
-          </ion-grid>        
+          <div *ngIf="this.MainPage.index == 54; then shop else selectMenu"></div>
+          <ng-template #shop>
+            <app-shop [panierList]='getPanier()'></app-shop>
+          </ng-template>
+          <ng-template #selectMenu>
+            <ion-grid *ngFor="let button of MainPage.buttonArray; index as i">
+              <ion-row>
+                <ion-col class="listButton">
+                  <ion-button fill="clear" expand="full" (click)="addItem(button)">
+                    <div *ngIf="button.image; then showImage"></div>
+                      <ng-template #showImage>
+                        <ion-img  class="icone" src='{{ button.image }}'></ion-img>
+                      </ng-template>
+                      <p style="width: 100%; text-align: left;">{{ button.name }}</p>
+                      <p style="text-align: right;">{{ button.index }} €</p>
+                  </ion-button>  
+                </ion-col>
+              </ion-row>  
+            </ion-grid>        
+          </ng-template>
         </ng-template>
       </div>
     </ng-template>

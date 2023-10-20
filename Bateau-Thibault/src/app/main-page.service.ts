@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MainPageModel } from 'src/models/MainPage';
+import { CustomButton } from 'src/models/customButton';
 
 export enum Pages {
   Accueil = 0,
@@ -30,6 +31,7 @@ export enum Pages {
   ListeCoquillages = 51,
   ListeCrustacés = 52,
   ListePromotions = 53,
+  Boutique = 54,
 };
 
 @Injectable({
@@ -38,7 +40,7 @@ export enum Pages {
 
 export class MainPageService {
 
-
+  static panierList : CustomButton[] = [];
 
   ListePage :MainPageModel[] = 
   [
@@ -498,6 +500,13 @@ export class MainPageService {
           name: 'Moules de pêche',
           image : '../../assets/images/poulpe.png'
         },
+      ]
+    },
+    {
+      index: 54,
+      titre: 'Modifiez la quantité en tappant sur chaque produit',
+      description: '',
+      buttonArray : [
       ]
     },
   ];

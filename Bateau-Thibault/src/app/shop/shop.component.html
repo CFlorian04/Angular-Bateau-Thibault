@@ -1,0 +1,23 @@
+<div>
+  <ion-grid *ngFor="let item of realPanierList">
+    <ion-row>
+      <ion-col>
+        <ion-button fill="clear" expand="full">
+          <div *ngIf="item.image; then showImage"></div>
+            <ng-template #showImage>
+              <ion-img  class="icone" src='{{ item.image }}'></ion-img>
+            </ng-template>
+            <p style="width: 100%; text-align: left;">{{ item.name }}</p>
+            <p style="text-align: right;">{{item.num}} x {{ item.price }} €</p>
+        </ion-button>  
+      </ion-col>
+    </ion-row>  
+    <!-- <ion-row>
+      <ion-col>
+        <ion-img  class="icone" src='{{ item.image }}'></ion-img>
+        <p style="width: 100%; text-align: left;">{{item.name}}</p>
+        <p style="text-align: right;">{{item.index}} €</p>
+      </ion-col>
+    </ion-row> -->
+  </ion-grid>
+</div>
