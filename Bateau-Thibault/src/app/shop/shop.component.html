@@ -3,7 +3,7 @@
     <ion-grid *ngFor="let item of realPanierList">
       <ion-row>
         <ion-col>
-          <ion-button fill="clear" expand="full">
+          <ion-button fill="clear" expand="full" id='{{item.name}}' (click)="onClick(item.name)">
             <div *ngIf="item.image; then showImage"></div>
             <ng-template #showImage>
               <ion-img  class="icone" src='{{ item.image }}'></ion-img>
@@ -11,45 +11,59 @@
              <p style="width: 100%; text-align: left;">{{ item.name }}</p>
              <p style="text-align: right;">{{item.num}} x {{ item.price }} €</p>
           </ion-button>
+          <ion-action-sheet trigger='{{item.name}}' header="Actions" [buttons]="actionSheetButtons"></ion-action-sheet>
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
-  <div style="background-color: #2d2a2a42; border: solid 1px grey; height:max-content; font-family: Arial, Helvetica, sans-serif;">
+  <div style="background-color: #2d2a2a42; border: solid 1px grey; height: 35vh; font-family: Arial, Helvetica, sans-serif;">
     <p style="text-align: right; font-size: larger; padding-right: 20px;">Total: {{getTotal()}} €</p>
     <ion-row>
       <!-- <ion-button style="background-color: transparent;">Lieu de livraison</ion-button> -->
       <ion-item>
-        <ion-select label="Lieu de livraison" label-placement="stacked">
-          <ion-select-option value="apple">Apple</ion-select-option>
-          <ion-select-option value="banana">Banana</ion-select-option>
-          <ion-select-option value="orange">Orange</ion-select-option>
+        <ion-select label="Lieu de livraison (choisir) :" label-placement="stacked" style="background-color: transparent; background: transparent; color: white;">
+          <div *ngFor="let restaurant of restaurantList" >
+            <ion-select-option>{{restaurant}}</ion-select-option>
+          </div>
         </ion-select>
       </ion-item>
     </ion-row>
-    <ion-row>
-      <ion-item>
-        <ion-select label="Date de livraison" label-placement="stacked">
+    <ion-row style="background-color: transparent; border-color: transparent; height: 8vh; background: transparent;">
+      <ion-item>  
+        <!-- <ion-label position="stacked">Date of birth</ion-label> -->
+        <ion-button id="date" fill= "clear" style="color: white;">Date de livraison:
+          <p>{{ date | date }}, à partir de 9h</p></ion-button>
+        <ion-popover trigger="date" triggerAction="click">
+          <ng-template>
+            <ion-datetime
+            presentation="date"
+            min ="{{minDate}}"
+            [(ngModel)]="date"
+            ></ion-datetime>
+          </ng-template>
+        </ion-popover>
+        <!-- <ion-select label="Date de livraison" label-placement="stacked">
           <ion-select-option value="apple">Apple</ion-select-option>
           <ion-select-option value="banana">Banana</ion-select-option>
           <ion-select-option value="orange">Orange</ion-select-option>
-        </ion-select>
+        </ion-select> -->
       </ion-item>
     </ion-row>
     <ion-row>
-      <ion-button id="present-alert">
-        <p style="text-align: right; width: 100%;">Valider</p>
-      </ion-button>
-      <ion-alert
+      <ion-col class="ion-text-right" style="background-color: transparent; border-color: transparent; height: 8vh;">
+        <ion-button style= "color: white; text-align: right;" id="present-alert" fill= "clear">
+          <p style="text-align: right; width: 100%;">Valider</p>
+        </ion-button>
+        <ion-alert
         [isOpen]="isAlertOpen"
         trigger="present-alert"
-        header="Alert"
-        subHeader="Important message"
-        message="This is an alert!"
+        header="Envoyer votre commande ?"
+        message="{{'Envoyer votre commande de ' + getTotal() + '€ à Thibaud ?'}}"
         [buttons]="alertButtons"
         (didDismiss)="setOpen(false)"
       >
       </ion-alert>
+    </ion-col>
     </ion-row>
   </div>
 </div>
