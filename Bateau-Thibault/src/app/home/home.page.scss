@@ -7,6 +7,7 @@
 ion-grid {
   justify-content: center;
   align-items: center;
+  padding : 0;
 }
 
 ion-col {
@@ -59,7 +60,44 @@ ion-content.background {
   line-height: 1;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.image {
+  height: 30vh;
+}
+
+div {
+  white-space: pre-line;
+}
+
+.selectButton > p {
+  height: 20vh;
+  font-size: large;
+  //width: 40vw;
+}
+
+.listButton {
+  ion-col {
+    text-align: center;
+    width: 100%;
+    background-color: #2d2a2a42;
+    border: solid 1px grey;
+    margin: 5px;
+    padding: 0;
+  }
+
+  ion-img.icone {
+    height: 12vh;
+    //width: 8vh;
+  }
+
+  ion-button > p {
+    padding-left: 5px;
+    font-size: large;
+  }
+
+  ion-button {
+    height: 12vh;
+    //width: 40vw;
+    margin: 0;
+    color: white;
+  }
 }
